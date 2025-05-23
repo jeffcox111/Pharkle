@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farkle - Two Player Game</title>
+    <link rel="icon" type="image/svg+xml" href="images/dice-6.svg">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="animations.css">
+</head>
+<body>    
+    <div class="container">
+        <h1>Pharkle</h1>
+        <div class="game-info">
+            <div class="current-player">Current Player: <span id="current-player">Player 1</span></div>
+            <div class="score-board">
+                <div class="player-score">
+                    <div id="player1" class="player active">Player 1</div>
+                    <div id="score1" class="score">0</div>
+                </div>
+                <div class="player-score">
+                    <div id="player2" class="player">Player 2</div>
+                    <div id="score2" class="score">0</div>
+                </div>
+            </div>
+        </div>
+          <div class="game-board">
+            <div class="dice-container">
+                <div id="dice1" class="dice" data-value="1"></div>
+                <div id="dice2" class="dice" data-value="2"></div>
+                <div id="dice3" class="dice" data-value="3"></div>
+                <div id="dice4" class="dice" data-value="4"></div>
+                <div id="dice5" class="dice" data-value="5"></div>
+                <div id="dice6" class="dice" data-value="6"></div>
+            </div>
+            
+            <div class="current-turn-info">
+                <div class="turn-score">Turn Score: <span id="turn-score">0</span></div>
+                <div class="selected-dice">Selected Dice Score: <span id="selected-score">0</span></div>
+            </div>
+            
+            <div class="action-buttons">
+                <button id="roll-btn" class="btn">Roll Dice</button>
+                <button id="bank-btn" class="btn" disabled>Bank Points</button>
+                <button id="reset-btn" class="btn">New Game</button>
+            </div>
+        </div>
+          <div id="game-messages" class="game-messages"></div>
+      </div>
+    
+    <div class="rules-container">
+        <h2>Game Rules</h2>
+        <div class="rules">
+            <h3>How to Play:</h3>
+            <ul>
+                <li>Players take turns rolling six dice</li>
+                <li>After each roll, player must select at least one scoring die</li>
+                <li>Player can choose to roll again with remaining dice or bank their points</li>
+                <li>If no scoring dice are rolled, that's a "Farkle" - player loses all points for that turn</li>
+                <li>First player to reach 5,000 points wins</li>
+            </ul>
+            
+            <h3>Scoring:</h3>
+            <ul>
+                <li>Single 1 = 100 points</li>
+                <li>Single 5 = 50 points</li>
+                <li>Three 1s = 1000 points</li>
+                <li>Three of a kind (except 1s) = value × 100</li>
+                <li>Four of a kind = 2× three of a kind score</li>
+                <li>Five of a kind = 3× three of a kind score</li>
+                <li>Six of a kind = 4× three of a kind score</li>
+                <li>Three pairs = 1500 points</li>
+                <li>Straight (1-2-3-4-5-6) = 3000 points</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

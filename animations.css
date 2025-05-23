@@ -1,0 +1,162 @@
+@keyframes dice-roll {
+    0% {
+        transform: rotate(0deg) translateY(0);
+    }
+    25% {
+        transform: rotate(90deg) translateY(-10px);
+    }
+    50% {
+        transform: rotate(180deg) translateY(0);
+    }
+    75% {
+        transform: rotate(270deg) translateY(-10px);
+    }
+    100% {
+        transform: rotate(360deg) translateY(0);
+    }
+}
+
+.dice-rolling {
+    animation: dice-roll 0.5s ease-in-out;
+}
+
+@keyframes score-highlight {
+    0% {
+        transform: scale(1);
+        color: #333;
+    }
+    50% {
+        transform: scale(1.2);
+        color: #4CAF50;
+    }
+    100% {
+        transform: scale(1);
+        color: #333;
+    }
+}
+
+.score-update {
+    animation: score-highlight 0.8s ease-in-out;
+}
+
+/* Improved button styles for better interaction */
+#roll-btn {
+    background-color: #2196F3;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+#roll-btn.highlighted {
+    animation: roll-highlight 1.2s ease-in-out infinite;
+    box-shadow: 0 0 15px rgba(33, 150, 243, 0.7);
+}
+
+@keyframes roll-highlight {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+#roll-btn::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%, -50%);
+    transform-origin: 50% 50%;
+}
+
+#roll-btn:hover::after {
+    animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(20, 20);
+        opacity: 0;
+    }
+}
+
+/* Game winner celebration animation */
+@keyframes winner-celebration {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(76, 175, 80, 0);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(76, 175, 80, 0.7);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(76, 175, 80, 0);
+    }
+}
+
+.winner {
+    animation: winner-celebration 1.5s ease-in-out infinite;
+    background-color: #4CAF50 !important;
+    color: white !important;
+}
+
+/* Farkle animation */
+@keyframes farkle-shake {
+    0% { transform: scale(1) translateX(0); background-color: transparent; }
+    10% { transform: scale(1.2) translateX(-10px) rotate(-5deg); background-color: rgba(244, 67, 54, 0.2); }
+    20% { transform: scale(1.2) translateX(10px) rotate(5deg); background-color: rgba(244, 67, 54, 0.3); }
+    30% { transform: scale(1.2) translateX(-10px) rotate(-5deg); background-color: rgba(244, 67, 54, 0.4); }
+    40% { transform: scale(1.2) translateX(10px) rotate(5deg); background-color: rgba(244, 67, 54, 0.5); }
+    50% { transform: scale(1.2) translateX(-10px) rotate(-5deg); background-color: rgba(244, 67, 54, 0.4); }
+    60% { transform: scale(1.2) translateX(10px) rotate(5deg); background-color: rgba(244, 67, 54, 0.3); }
+    70% { transform: scale(1.2) translateX(-10px) rotate(-5deg); background-color: rgba(244, 67, 54, 0.2); }
+    80% { transform: scale(1.1) translateX(5px) rotate(2deg); background-color: rgba(244, 67, 54, 0.1); }
+    90% { transform: scale(1.05) translateX(-2px) rotate(-1deg); background-color: transparent; }
+    100% { transform: scale(1) translateX(0); background-color: transparent; }
+}
+
+.farkle-msg {
+    animation: farkle-shake 1.5s ease-in-out;
+    color: #f44336 !important;
+    font-size: 2rem !important;
+    font-weight: bold !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 20px !important;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+/* Add a flash animation for dice on Farkle */
+@keyframes farkle-flash {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.95); }
+    100% { opacity: 0.3; transform: scale(0.9); }
+}
+
+.dice-farkle {
+    animation: farkle-flash 0.5s ease-in-out forwards;
+}
+
+/* Hot dice animation */
+@keyframes hot-dice-pulse {
+    0% { transform: scale(1); color: #333; text-shadow: 0 0 0 rgba(255, 152, 0, 0); }
+    50% { transform: scale(1.1); color: #ff9800; text-shadow: 0 0 15px rgba(255, 152, 0, 0.8); }
+    100% { transform: scale(1); color: #333; text-shadow: 0 0 0 rgba(255, 152, 0, 0); }
+}
+
+.hot-dice-msg {
+    animation: hot-dice-pulse 1.5s ease-in-out;
+    color: #ff9800 !important;
+    font-size: 1.8rem !important;
+    font-weight: bold !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
