@@ -7,7 +7,47 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="animations.css">
 </head>
-<body>    
+<body>
+    <!-- Game Setup Modal -->
+    <div id="setup-modal" class="modal">
+        <div class="modal-content">
+            <h2>Game Setup</h2>
+            <div class="modal-form">
+                <div class="form-group">
+                    <label for="player1-name">Player 1 Name:</label>
+                    <input type="text" id="player1-name" value="Player 1">
+                </div>
+                <div class="form-group">
+                    <label for="player2-name">Player 2 Name:</label>
+                    <input type="text" id="player2-name" value="Player 2">
+                </div>
+                <div class="form-group">
+                    <label for="target-score">Points to Win:</label>
+                    <input type="number" id="target-score" value="5000" min="1000" step="500">
+                </div>
+                <button id="start-game" class="btn">Start Game</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Coin Toss Modal -->
+    <div id="coin-toss-modal" class="modal">
+        <div class="modal-content coin-toss-content">
+            <h2>Coin Toss</h2>
+            <p>Tossing a coin to see who goes first...</p>
+            
+            <div class="coin-container">
+                <div class="coin">
+                    <div class="coin-side coin-heads">P1</div>
+                    <div class="coin-side coin-tails">P2</div>
+                </div>
+                <div id="coin-result" class="coin-result"></div>
+            </div>
+            
+            <button id="continue-game" class="btn" style="display: none;">Let's Play!</button>
+        </div>
+    </div>
+    
     <div class="container">
         <h1>Pharkle</h1>
         <div class="game-info">
@@ -51,12 +91,11 @@
         <h2>Game Rules</h2>
         <div class="rules">
             <h3>How to Play:</h3>
-            <ul>
-                <li>Players take turns rolling six dice</li>
+            <ul>                <li>Players take turns rolling six dice</li>
                 <li>After each roll, player must select at least one scoring die</li>
                 <li>Player can choose to roll again with remaining dice or bank their points</li>
                 <li>If no scoring dice are rolled, that's a "Farkle" - player loses all points for that turn</li>
-                <li>First player to reach 5,000 points wins</li>
+                <li>First player to reach <span id="rules-target-score">5,000</span> points wins</li>
             </ul>
             
             <h3>Scoring:</h3>
